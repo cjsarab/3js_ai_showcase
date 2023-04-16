@@ -54,7 +54,7 @@ const Customizer = () => {
       try {
         setGeneratingImg(true);
 
-        const response = await fetch('http://localhost:8080/api/v1/dalle', {
+        const response = await fetch('https://threejs-ai-showcase.onrender.com/api/v1/dalle', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -149,6 +149,20 @@ const Customizer = () => {
               customStyles="w-fit px-4 py-2.5 font-bold text-sm"
             />
           </motion.div>
+
+          {activeEditorTab !== '' && (
+          <motion.div className="absolute z-10 top-5 left-5"
+            {...fadeAnimation}
+          >
+            <CustomButton 
+              type="filled"
+              title="Close Editor"
+              handleClick={() => setActiveEditorTab('')}
+              customStyles="w-fit px-4 py-2.5 font-bold text-sm"
+            />
+          </motion.div>
+
+          )}
 
           <motion.div
             className='filtertabs-container'
